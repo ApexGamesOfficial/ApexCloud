@@ -2,1595 +2,1991 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0b0b0c"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0c">
 
   <title>ApexCloud</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
 
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <div class="app-shell">
+<div class="app-shell">
 
-    <!-- ==========================================
-         SIDEBAR
-    =========================================== -->
+  <!-- =====================================================
+       SIDEBAR
+  ====================================================== -->
 
-    <aside
-      class="sidebar"
-      id="sidebar"
-    >
+  <aside class="sidebar" id="sidebar">
 
-      <div class="sidebar-header">
+    <div class="sidebar-header">
+
+      <button class="brand" id="homeButton" type="button">
+        <span class="brand-mark">A</span>
+        <span class="brand-name">ApexCloud</span>
+      </button>
+
+      <button
+        class="sidebar-close"
+        id="sidebarCloseButton"
+        type="button"
+        aria-label="Close navigation"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="sidebar-project">
+
+      <div class="project-switcher-wrap">
 
         <button
-          class="brand"
-          id="homeButton"
+          class="project-switcher"
+          id="projectSwitcher"
           type="button"
         >
-          <span class="brand-mark">
+
+          <span
+            class="project-switcher-icon"
+            id="projectSwitcherIcon"
+          >
             A
           </span>
 
-          <span class="brand-name">
-            ApexCloud
-          </span>
-        </button>
-
-        <button
-          class="sidebar-close"
-          id="sidebarCloseButton"
-          type="button"
-          aria-label="Close navigation"
-        >
-          ×
-        </button>
-
-      </div>
-
-
-      <!-- PROJECT -->
-
-      <div class="sidebar-project">
-
-        <div class="project-switcher-wrap">
-
-          <button
-            class="project-switcher"
-            id="projectSwitcher"
-            type="button"
-          >
+          <span class="project-switcher-copy">
 
             <span
-              class="project-switcher-icon"
-              id="projectSwitcherIcon"
+              class="project-switcher-name"
+              id="projectSwitcherName"
             >
-              A
+              No project selected
             </span>
 
-            <span class="project-switcher-copy">
-
-              <span
-                class="project-switcher-name"
-                id="projectSwitcherName"
-              >
-                No project selected
-              </span>
-
-              <span
-                class="project-switcher-region"
-                id="projectSwitcherRegion"
-              >
-                ApexCloud
-              </span>
-
-            </span>
-
-            <span class="project-switcher-arrow">
-              ▾
-            </span>
-
-          </button>
-
-
-          <div
-            class="project-menu"
-            id="projectMenu"
-            hidden
-          >
-
-            <div class="project-menu-heading">
-              Projects
-            </div>
-
-            <div
-              class="project-menu-list"
-              id="projectMenuList"
-            ></div>
-
-            <div class="project-menu-footer">
-
-              <button
-                class="project-menu-new"
-                id="projectMenuNewButton"
-                type="button"
-              >
-                <span>＋</span>
-                New project
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- NAVIGATION -->
-
-      <nav class="sidebar-nav">
-
-        <div class="nav-group">
-
-          <button
-            class="nav-item active"
-            data-view="overview"
-            type="button"
-          >
-            <span class="nav-icon">⌂</span>
-            <span>Overview</span>
-          </button>
-
-        </div>
-
-
-        <div class="nav-label">
-          Database
-        </div>
-
-        <div class="nav-group">
-
-          <button
-            class="nav-item"
-            data-view="database"
-            type="button"
-          >
-            <span class="nav-icon">▦</span>
-            <span>Table Editor</span>
-          </button>
-
-        </div>
-
-
-        <div class="nav-label">
-          Build
-        </div>
-
-        <div class="nav-group">
-
-          <button
-            class="nav-item"
-            data-view="storage"
-            type="button"
-          >
-            <span class="nav-icon">▣</span>
-            <span>Storage</span>
-          </button>
-
-          <button
-            class="nav-item"
-            data-view="api"
-            type="button"
-          >
-            <span class="nav-icon code-icon">&lt;/&gt;</span>
-            <span>API</span>
-          </button>
-
-        </div>
-
-
-        <div class="nav-label">
-          Project
-        </div>
-
-        <div class="nav-group">
-
-          <button
-            class="nav-item"
-            data-view="settings"
-            type="button"
-          >
-            <span class="nav-icon">⚙</span>
-            <span>Settings</span>
-          </button>
-
-        </div>
-
-      </nav>
-
-
-      <!-- SIDEBAR FOOTER -->
-
-      <div class="sidebar-bottom">
-
-        <div class="system-status">
-
-          <span class="status-dot"></span>
-
-          <div class="system-status-copy">
-            <strong>All systems operational</strong>
-            <span>ApexCloud v0.01</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </aside>
-
-
-    <div
-      class="sidebar-overlay"
-      id="sidebarOverlay"
-    ></div>
-
-
-    <!-- ==========================================
-         MAIN AREA
-    =========================================== -->
-
-    <main class="main-area">
-
-
-      <!-- TOP BAR -->
-
-      <header class="topbar">
-
-        <div class="topbar-left">
-
-          <button
-            class="mobile-menu-button"
-            id="mobileMenuButton"
-            type="button"
-            aria-label="Open navigation"
-          >
-            ☰
-          </button>
-
-          <div class="breadcrumb">
-
-            <span class="breadcrumb-brand">
+            <span
+              class="project-switcher-region"
+              id="projectSwitcherRegion"
+            >
               ApexCloud
             </span>
 
-            <span class="breadcrumb-divider">
-              /
-            </span>
+          </span>
 
-            <span class="breadcrumb-current">
-              Project
-            </span>
+          <span class="project-switcher-arrow">▾</span>
 
-          </div>
-
-        </div>
+        </button>
 
 
-        <div class="topbar-right">
-
-          <div class="topbar-status">
-            <span class="status-dot"></span>
-            Operational
-          </div>
-
-          <button
-            class="topbar-help"
-            type="button"
-            title="Documentation"
-          >
-            ?
-          </button>
-
-          <button
-            class="profile-button"
-            type="button"
-            aria-label="Profile"
-          >
-            A
-          </button>
-
-        </div>
-
-      </header>
-
-
-      <!-- ==========================================
-           CONTENT
-      =========================================== -->
-
-      <section
-        class="content"
-        id="content"
-      >
-
-
-        <!-- ========================================
-             EMPTY WORKSPACE
-        ========================================= -->
-
-        <section
-          class="empty-workspace"
-          id="emptyWorkspace"
+        <div
+          class="project-menu"
+          id="projectMenu"
+          hidden
         >
 
-          <div class="empty-workspace-inner">
+          <div class="project-menu-heading">
+            Projects
+          </div>
 
-            <div class="empty-icon">
-              A
-            </div>
+          <div
+            class="project-menu-list"
+            id="projectMenuList"
+          ></div>
 
-            <p class="eyebrow">
-              APEXCLOUD
-            </p>
-
-            <h1>
-              Build your backend on ApexCloud.
-            </h1>
-
-            <p class="empty-description">
-              Create a cloud project with database,
-              storage, and API services ready for
-              development.
-            </p>
+          <div class="project-menu-footer">
 
             <button
-              class="primary-button"
-              id="emptyCreateButton"
+              class="project-menu-new"
+              id="projectMenuNewButton"
               type="button"
             >
-              Create a project
+              <span>＋</span>
+              New project
             </button>
 
           </div>
 
-        </section>
-
-
-        <!-- ========================================
-             PROJECT WORKSPACE
-        ========================================= -->
-
-        <section
-          class="project-workspace"
-          id="projectWorkspace"
-          hidden
-        >
-
-
-          <!-- ======================================
-               OVERVIEW
-          ======================================= -->
-
-          <div
-            class="view active-view"
-            data-view-panel="overview"
-          >
-
-            <div class="page-header">
-
-              <div class="page-header-copy">
-
-                <p class="eyebrow">
-                  PROJECT
-                </p>
-
-                <h1
-                  id="overviewProjectName"
-                >
-                  Project
-                </h1>
-
-                <p
-                  class="page-description"
-                  id="overviewProjectDescription"
-                >
-                  Your ApexCloud project.
-                </p>
-
-              </div>
-
-
-              <div class="project-health">
-
-                <span class="status-dot"></span>
-
-                <div>
-                  <strong>Project healthy</strong>
-                  <span>All services available</span>
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <!-- PROJECT DETAILS -->
-
-            <div class="project-details-bar">
-
-              <div class="project-detail">
-
-                <span class="detail-label">
-                  Project ID
-                </span>
-
-                <code id="overviewProjectId">
-                  —
-                </code>
-
-              </div>
-
-
-              <div class="detail-divider"></div>
-
-
-              <div class="project-detail">
-
-                <span class="detail-label">
-                  Region
-                </span>
-
-                <span id="overviewRegion">
-                  —
-                </span>
-
-              </div>
-
-
-              <div class="detail-divider"></div>
-
-
-              <div class="project-detail">
-
-                <span class="detail-label">
-                  Created
-                </span>
-
-                <span id="overviewCreatedAt">
-                  —
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <!-- STATS -->
-
-            <div class="stats-grid">
-
-              <article class="stat-card">
-
-                <div class="stat-card-top">
-                  <span>Database</span>
-                  <span class="stat-icon">▦</span>
-                </div>
-
-                <div class="stat-card-value-row">
-
-                  <strong
-                    class="stat-value"
-                    id="databaseTableCount"
-                  >
-                    0
-                  </strong>
-
-                  <span class="stat-unit">
-                    tables
-                  </span>
-
-                </div>
-
-                <div class="stat-status">
-                  <span class="status-dot tiny"></span>
-                  Ready
-                </div>
-
-              </article>
-
-
-              <article class="stat-card">
-
-                <div class="stat-card-top">
-                  <span>Storage</span>
-                  <span class="stat-icon">▣</span>
-                </div>
-
-                <div class="stat-card-value-row">
-
-                  <strong
-                    class="stat-value"
-                    id="storageBucketCount"
-                  >
-                    0
-                  </strong>
-
-                  <span class="stat-unit">
-                    buckets
-                  </span>
-
-                </div>
-
-                <div class="stat-status">
-                  <span class="status-dot tiny"></span>
-                  Ready
-                </div>
-
-              </article>
-
-
-              <article class="stat-card">
-
-                <div class="stat-card-top">
-                  <span>API</span>
-                  <span class="stat-icon code-icon">
-                    &lt;/&gt;
-                  </span>
-                </div>
-
-                <div class="stat-card-value-row">
-
-                  <strong class="stat-value text-value">
-                    Ready
-                  </strong>
-
-                </div>
-
-                <div class="stat-status">
-                  Development endpoint
-                </div>
-
-              </article>
-
-            </div>
-
-
-            <!-- SERVICES / QUICK START -->
-
-            <div class="overview-grid">
-
-
-              <article class="panel">
-
-                <div class="panel-heading">
-
-                  <div>
-                    <p class="panel-eyebrow">
-                      SERVICES
-                    </p>
-
-                    <h2>
-                      Project services
-                    </h2>
-                  </div>
-
-                </div>
-
-
-                <div class="service-list">
-
-                  <button
-                    class="service-row"
-                    data-open-view="database"
-                    type="button"
-                  >
-
-                    <span class="service-icon">
-                      ▦
-                    </span>
-
-                    <span class="service-copy">
-                      <strong>Database</strong>
-                      <span>
-                        Create and manage project tables
-                      </span>
-                    </span>
-
-                    <span class="service-state">
-                      Ready
-                    </span>
-
-                    <span class="service-arrow">
-                      →
-                    </span>
-
-                  </button>
-
-
-                  <button
-                    class="service-row"
-                    data-open-view="storage"
-                    type="button"
-                  >
-
-                    <span class="service-icon">
-                      ▣
-                    </span>
-
-                    <span class="service-copy">
-                      <strong>Storage</strong>
-                      <span>
-                        Organize project files into buckets
-                      </span>
-                    </span>
-
-                    <span class="service-state">
-                      Ready
-                    </span>
-
-                    <span class="service-arrow">
-                      →
-                    </span>
-
-                  </button>
-
-
-                  <button
-                    class="service-row"
-                    data-open-view="api"
-                    type="button"
-                  >
-
-                    <span class="service-icon code-icon">
-                      &lt;/&gt;
-                    </span>
-
-                    <span class="service-copy">
-                      <strong>API</strong>
-                      <span>
-                        Connect applications to your project
-                      </span>
-                    </span>
-
-                    <span class="service-state">
-                      Ready
-                    </span>
-
-                    <span class="service-arrow">
-                      →
-                    </span>
-
-                  </button>
-
-                </div>
-
-              </article>
-
-
-              <article class="panel quickstart-panel">
-
-                <div class="panel-heading">
-
-                  <div>
-                    <p class="panel-eyebrow">
-                      QUICK START
-                    </p>
-
-                    <h2>
-                      Connect your app
-                    </h2>
-                  </div>
-
-                </div>
-
-
-                <div class="quickstart-content">
-
-                  <div class="quickstart-step">
-
-                    <span class="step-number">
-                      01
-                    </span>
-
-                    <div>
-                      <strong>
-                        Create your database
-                      </strong>
-
-                      <p>
-                        Add your first table and define
-                        the data your app needs.
-                      </p>
-                    </div>
-
-                  </div>
-
-
-                  <div class="quickstart-step">
-
-                    <span class="step-number">
-                      02
-                    </span>
-
-                    <div>
-                      <strong>
-                        Get your API credentials
-                      </strong>
-
-                      <p>
-                        Copy your project URL and
-                        development key.
-                      </p>
-                    </div>
-
-                  </div>
-
-
-                  <div class="quickstart-step">
-
-                    <span class="step-number">
-                      03
-                    </span>
-
-                    <div>
-                      <strong>
-                        Connect your application
-                      </strong>
-
-                      <p>
-                        Start reading and writing project
-                        data from your code.
-                      </p>
-                    </div>
-
-                  </div>
-
-
-                  <button
-                    class="secondary-button quickstart-button"
-                    data-open-view="api"
-                    type="button"
-                  >
-                    View API settings
-                    <span>→</span>
-                  </button>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          </div>
-
-
-          <!-- ======================================
-               DATABASE
-          ======================================= -->
-
-          <div
-            class="view"
-            data-view-panel="database"
-          >
-
-            <div class="page-header">
-
-              <div class="page-header-copy">
-
-                <p class="eyebrow">
-                  DATABASE
-                </p>
-
-                <h1>
-                  Table Editor
-                </h1>
-
-                <p class="page-description">
-                  Create and manage the tables in your
-                  ApexCloud database.
-                </p>
-
-              </div>
-
-
-              <button
-                class="primary-button compact-button"
-                id="createTableButton"
-                type="button"
-              >
-                + New table
-              </button>
-
-            </div>
-
-
-            <article class="panel resource-panel">
-
-              <div class="resource-toolbar">
-
-                <div>
-
-                  <h2>
-                    Tables
-                  </h2>
-
-                  <p>
-                    Public schema
-                  </p>
-
-                </div>
-
-
-                <div class="resource-toolbar-right">
-
-                  <span class="toolbar-badge">
-                    DATABASE
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <div
-                class="resource-empty"
-                id="databaseEmpty"
-              >
-
-                <div class="resource-empty-icon">
-                  ▦
-                </div>
-
-                <h3>
-                  No tables yet
-                </h3>
-
-                <p>
-                  Create your first table to start
-                  storing application data.
-                </p>
-
-                <button
-                  class="secondary-button"
-                  type="button"
-                  onclick="document.getElementById('createTableButton').click()"
-                >
-                  Create table
-                </button>
-
-              </div>
-
-
-              <div
-                class="resource-list"
-                id="databaseTableList"
-                hidden
-              ></div>
-
-            </article>
-
-          </div>
-
-
-          <!-- ======================================
-               STORAGE
-          ======================================= -->
-
-          <div
-            class="view"
-            data-view-panel="storage"
-          >
-
-            <div class="page-header">
-
-              <div class="page-header-copy">
-
-                <p class="eyebrow">
-                  STORAGE
-                </p>
-
-                <h1>
-                  Storage
-                </h1>
-
-                <p class="page-description">
-                  Store and organize files for your
-                  applications.
-                </p>
-
-              </div>
-
-
-              <button
-                class="primary-button compact-button"
-                id="createBucketButton"
-                type="button"
-              >
-                + New bucket
-              </button>
-
-            </div>
-
-
-            <article class="panel resource-panel">
-
-              <div class="resource-toolbar">
-
-                <div>
-
-                  <h2>
-                    Buckets
-                  </h2>
-
-                  <p>
-                    Project file storage
-                  </p>
-
-                </div>
-
-
-                <div class="resource-toolbar-right">
-
-                  <span class="toolbar-badge">
-                    STORAGE
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <div
-                class="resource-empty"
-                id="storageEmpty"
-              >
-
-                <div class="resource-empty-icon">
-                  ▣
-                </div>
-
-                <h3>
-                  No buckets yet
-                </h3>
-
-                <p>
-                  Create a bucket to begin storing
-                  project files.
-                </p>
-
-                <button
-                  class="secondary-button"
-                  type="button"
-                  onclick="document.getElementById('createBucketButton').click()"
-                >
-                  Create bucket
-                </button>
-
-              </div>
-
-
-              <div
-                class="resource-list"
-                id="storageBucketList"
-                hidden
-              ></div>
-
-            </article>
-
-          </div>
-
-
-          <!-- ======================================
-               API
-          ======================================= -->
-
-          <div
-            class="view"
-            data-view-panel="api"
-          >
-
-            <div class="page-header">
-
-              <div class="page-header-copy">
-
-                <p class="eyebrow">
-                  DEVELOPMENT
-                </p>
-
-                <h1>
-                  API
-                </h1>
-
-                <p class="page-description">
-                  Connect your application to this
-                  ApexCloud project.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="api-layout">
-
-
-              <article class="panel api-panel">
-
-                <div class="panel-heading">
-
-                  <div>
-
-                    <p class="panel-eyebrow">
-                      PROJECT API
-                    </p>
-
-                    <h2>
-                      Project credentials
-                    </h2>
-
-                  </div>
-
-                </div>
-
-
-                <div class="api-field">
-
-                  <div class="api-field-header">
-
-                    <div>
-                      <label>
-                        Project URL
-                      </label>
-
-                      <span>
-                        API endpoint for this project
-                      </span>
-                    </div>
-
-                  </div>
-
-
-                  <div class="code-copy-field">
-
-                    <code id="apiProjectUrl">
-                      —
-                    </code>
-
-                    <button
-                      id="copyApiUrlButton"
-                      type="button"
-                    >
-                      Copy
-                    </button>
-
-                  </div>
-
-                </div>
-
-
-                <div class="api-field">
-
-                  <div class="api-field-header">
-
-                    <div>
-                      <label>
-                        Development key
-                      </label>
-
-                      <span>
-                        Prototype key for development
-                      </span>
-                    </div>
-
-                  </div>
-
-
-                  <div class="code-copy-field">
-
-                    <code id="apiProjectKey">
-                      —
-                    </code>
-
-                    <button
-                      id="copyApiKeyButton"
-                      type="button"
-                    >
-                      Copy
-                    </button>
-
-                  </div>
-
-                </div>
-
-
-                <div class="api-warning">
-
-                  <span class="warning-icon">
-                    !
-                  </span>
-
-                  <p>
-                    ApexCloud v0.01 currently stores
-                    prototype project data locally.
-                    Do not use prototype development
-                    keys as production secrets.
-                  </p>
-
-                </div>
-
-              </article>
-
-
-              <article class="panel">
-
-                <div class="panel-heading">
-
-                  <div>
-
-                    <p class="panel-eyebrow">
-                      JAVASCRIPT
-                    </p>
-
-                    <h2>
-                      Quick example
-                    </h2>
-
-                  </div>
-
-                </div>
-
-
-                <div class="code-window">
-
-                  <div class="code-window-header">
-
-                    <span>
-                      request.js
-                    </span>
-
-                    <span class="code-language">
-                      JS
-                    </span>
-
-                  </div>
-
-                  <pre><code id="apiExample"></code></pre>
-
-                </div>
-
-              </article>
-
-            </div>
-
-          </div>
-
-
-          <!-- ======================================
-               SETTINGS
-          ======================================= -->
-
-          <div
-            class="view"
-            data-view-panel="settings"
-          >
-
-            <div class="page-header">
-
-              <div class="page-header-copy">
-
-                <p class="eyebrow">
-                  PROJECT
-                </p>
-
-                <h1>
-                  Settings
-                </h1>
-
-                <p class="page-description">
-                  Configure your ApexCloud project.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="settings-layout">
-
-
-              <article class="panel settings-panel">
-
-                <div class="panel-heading">
-
-                  <div>
-
-                    <p class="panel-eyebrow">
-                      GENERAL
-                    </p>
-
-                    <h2>
-                      Project details
-                    </h2>
-
-                  </div>
-
-                </div>
-
-
-                <div class="form-group">
-
-                  <label for="settingsProjectName">
-                    Project name
-                  </label>
-
-                  <input
-                    id="settingsProjectName"
-                    type="text"
-                    autocomplete="off"
-                  >
-
-                </div>
-
-
-                <div class="form-group">
-
-                  <label for="settingsProjectDescription">
-                    Description
-                  </label>
-
-                  <textarea
-                    id="settingsProjectDescription"
-                    rows="4"
-                  ></textarea>
-
-                </div>
-
-
-                <div class="settings-actions">
-
-                  <button
-                    class="primary-button"
-                    id="saveProjectSettingsButton"
-                    type="button"
-                  >
-                    Save changes
-                  </button>
-
-                </div>
-
-              </article>
-
-
-              <article class="panel danger-panel">
-
-                <div class="panel-heading">
-
-                  <div>
-
-                    <p class="panel-eyebrow danger-eyebrow">
-                      DANGER ZONE
-                    </p>
-
-                    <h2>
-                      Delete project
-                    </h2>
-
-                  </div>
-
-                </div>
-
-
-                <p class="danger-description">
-                  Permanently remove this local
-                  ApexCloud v0.01 project and its
-                  prototype data from this browser.
-                </p>
-
-
-                <button
-                  class="danger-button"
-                  id="deleteProjectButton"
-                  type="button"
-                >
-                  Delete project
-                </button>
-
-              </article>
-
-            </div>
-
-          </div>
-
-
-        </section>
-
-      </section>
-
-    </main>
-
-  </div>
-
-
-  <!-- ==========================================
-       CREATE PROJECT MODAL
-  =========================================== -->
-
-  <div
-    class="modal-backdrop"
-    id="createProjectModal"
-    hidden
-  >
-
-    <div
-      class="modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="createProjectTitle"
-    >
-
-      <div class="modal-header">
-
-        <div>
-
-          <p class="modal-eyebrow">
-            APEXCLOUD
-          </p>
-
-          <h2 id="createProjectTitle">
-            Create a new project
-          </h2>
-
         </div>
 
+      </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+      <div class="nav-group">
 
         <button
-          class="modal-close"
-          id="closeProjectModalButton"
+          class="nav-item active"
+          data-view="overview"
           type="button"
-          aria-label="Close"
         >
-          ×
+          <span class="nav-icon">⌂</span>
+          <span>Overview</span>
         </button>
 
       </div>
 
 
-      <form id="createProjectForm">
+      <div class="nav-label">
+        Database
+      </div>
 
-        <div class="form-group">
-
-          <label for="projectNameInput">
-            Project name
-          </label>
-
-          <input
-            id="projectNameInput"
-            type="text"
-            placeholder="My Project"
-            autocomplete="off"
-            required
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="projectDescriptionInput">
-            Description
-            <span class="optional-label">
-              Optional
-            </span>
-          </label>
-
-          <textarea
-            id="projectDescriptionInput"
-            rows="3"
-            placeholder="What are you building?"
-          ></textarea>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="projectRegionInput">
-            Region
-          </label>
-
-          <select id="projectRegionInput">
-            <option value="US East">
-              US East
-            </option>
-
-            <option value="US West">
-              US West
-            </option>
-
-            <option value="Europe">
-              Europe
-            </option>
-
-            <option value="Asia Pacific">
-              Asia Pacific
-            </option>
-          </select>
-
-        </div>
-
-
-        <div class="modal-note">
-
-          <span>i</span>
-
-          <p>
-            ApexCloud v0.01 is currently a local
-            prototype. Projects created here are
-            stored in this browser.
-          </p>
-
-        </div>
-
-
-        <div class="modal-actions">
-
-          <button
-            class="secondary-button"
-            id="cancelCreateProjectButton"
-            type="button"
-          >
-            Cancel
-          </button>
-
-          <button
-            class="primary-button"
-            type="submit"
-          >
-            Create project
-          </button>
-
-        </div>
-
-      </form>
-
-    </div>
-
-  </div>
-
-
-  <!-- ==========================================
-       RESOURCE MODAL
-  =========================================== -->
-
-  <div
-    class="modal-backdrop"
-    id="resourceModal"
-    hidden
-  >
-
-    <div
-      class="modal small-modal"
-      role="dialog"
-      aria-modal="true"
-    >
-
-      <div class="modal-header">
-
-        <div>
-
-          <p
-            class="modal-eyebrow"
-            id="resourceModalEyebrow"
-          >
-            DATABASE
-          </p>
-
-          <h2 id="resourceModalTitle">
-            Create resource
-          </h2>
-
-        </div>
-
+      <div class="nav-group">
 
         <button
-          class="modal-close"
-          id="closeResourceModalButton"
+          class="nav-item"
+          data-view="database"
           type="button"
-          aria-label="Close"
         >
-          ×
+          <span class="nav-icon">▦</span>
+          <span>Table Editor</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-view="sql"
+          type="button"
+        >
+          <span class="nav-icon">&gt;_</span>
+          <span>SQL Editor</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-view="schema"
+          type="button"
+        >
+          <span class="nav-icon">⌘</span>
+          <span>Schema</span>
         </button>
 
       </div>
 
 
-      <form id="resourceForm">
+      <div class="nav-label">
+        Build
+      </div>
 
-        <div class="form-group">
+      <div class="nav-group">
 
-          <label for="resourceNameInput">
-            Name
-          </label>
+        <button
+          class="nav-item"
+          data-view="storage"
+          type="button"
+        >
+          <span class="nav-icon">▣</span>
+          <span>Storage</span>
+        </button>
 
-          <input
-            id="resourceNameInput"
-            type="text"
-            autocomplete="off"
-            required
-          >
+        <button
+          class="nav-item"
+          data-view="functions"
+          type="button"
+        >
+          <span class="nav-icon">ƒ</span>
+          <span>Functions</span>
+        </button>
 
+      </div>
+
+
+      <div class="nav-label">
+        Development
+      </div>
+
+      <div class="nav-group">
+
+        <button
+          class="nav-item"
+          data-view="api"
+          type="button"
+        >
+          <span class="nav-icon code-icon">&lt;/&gt;</span>
+          <span>API</span>
+        </button>
+
+      </div>
+
+
+      <div class="nav-label">
+        Project
+      </div>
+
+      <div class="nav-group">
+
+        <button
+          class="nav-item"
+          data-view="backups"
+          type="button"
+        >
+          <span class="nav-icon">↶</span>
+          <span>Backups</span>
+        </button>
+
+        <button
+          class="nav-item"
+          data-view="settings"
+          type="button"
+        >
+          <span class="nav-icon">⚙</span>
+          <span>Settings</span>
+        </button>
+
+      </div>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+      <div class="system-status">
+
+        <span class="status-dot"></span>
+
+        <div class="system-status-copy">
+          <strong>All systems operational</strong>
+          <span>ApexCloud v0.01</span>
         </div>
 
-
-        <div class="modal-actions">
-
-          <button
-            class="secondary-button"
-            id="cancelResourceButton"
-            type="button"
-          >
-            Cancel
-          </button>
-
-          <button
-            class="primary-button"
-            id="resourceSubmitButton"
-            type="submit"
-          >
-            Create
-          </button>
-
-        </div>
-
-      </form>
+      </div>
 
     </div>
 
-  </div>
+  </aside>
 
-
-  <!-- TOAST -->
 
   <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
+    class="sidebar-overlay"
+    id="sidebarOverlay"
   ></div>
 
 
-  <script src="script.js"></script>
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main class="main-area">
+
+    <header class="topbar">
+
+      <div class="topbar-left">
+
+        <button
+          class="mobile-menu-button"
+          id="mobileMenuButton"
+          type="button"
+        >
+          ☰
+        </button>
+
+        <div class="breadcrumb">
+          <span class="breadcrumb-brand">ApexCloud</span>
+          <span class="breadcrumb-divider">/</span>
+          <span
+            class="breadcrumb-current"
+            id="breadcrumbCurrent"
+          >
+            Project
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="topbar-right">
+
+        <div class="topbar-status">
+          <span class="status-dot"></span>
+          Operational
+        </div>
+
+        <button class="topbar-help" type="button">
+          ?
+        </button>
+
+        <button class="profile-button" type="button">
+          A
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <section class="content">
+
+
+      <!-- =================================================
+           NO PROJECT
+      ================================================== -->
+
+      <section
+        class="empty-workspace"
+        id="emptyWorkspace"
+      >
+
+        <div class="empty-workspace-inner">
+
+          <div class="empty-icon">A</div>
+
+          <p class="eyebrow">
+            APEXCLOUD
+          </p>
+
+          <h1>
+            Build your backend on ApexCloud.
+          </h1>
+
+          <p class="empty-description">
+            Create a cloud project with database,
+            storage, functions, and API services
+            ready for development.
+          </p>
+
+          <button
+            class="primary-button"
+            id="emptyCreateButton"
+            type="button"
+          >
+            Create a project
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           PROJECT
+      ================================================== -->
+
+      <section
+        class="project-workspace"
+        id="projectWorkspace"
+        hidden
+      >
+
+
+        <!-- OVERVIEW -->
+
+        <div
+          class="view active-view"
+          data-view-panel="overview"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+
+              <p class="eyebrow">PROJECT</p>
+
+              <h1 id="overviewProjectName">
+                Project
+              </h1>
+
+              <p
+                class="page-description"
+                id="overviewProjectDescription"
+              >
+                Your ApexCloud project.
+              </p>
+
+            </div>
+
+
+            <div class="project-health">
+
+              <span class="status-dot"></span>
+
+              <div>
+                <strong>Project healthy</strong>
+                <span>All services available</span>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-details-bar">
+
+            <div class="project-detail">
+
+              <span class="detail-label">
+                Project ID
+              </span>
+
+              <code id="overviewProjectId">—</code>
+
+            </div>
+
+            <div class="detail-divider"></div>
+
+            <div class="project-detail">
+
+              <span class="detail-label">
+                Region
+              </span>
+
+              <span id="overviewRegion">—</span>
+
+            </div>
+
+            <div class="detail-divider"></div>
+
+            <div class="project-detail">
+
+              <span class="detail-label">
+                Created
+              </span>
+
+              <span id="overviewCreatedAt">—</span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stats-grid">
+
+            <article class="stat-card">
+
+              <div class="stat-card-top">
+                <span>Database</span>
+                <span class="stat-icon">▦</span>
+              </div>
+
+              <div class="stat-card-value-row">
+
+                <strong
+                  class="stat-value"
+                  id="databaseTableCount"
+                >
+                  0
+                </strong>
+
+                <span class="stat-unit">
+                  tables
+                </span>
+
+              </div>
+
+              <div class="stat-status">
+                <span class="status-dot tiny"></span>
+                Ready
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-card-top">
+                <span>Storage</span>
+                <span class="stat-icon">▣</span>
+              </div>
+
+              <div class="stat-card-value-row">
+
+                <strong
+                  class="stat-value"
+                  id="storageBucketCount"
+                >
+                  0
+                </strong>
+
+                <span class="stat-unit">
+                  buckets
+                </span>
+
+              </div>
+
+              <div class="stat-status">
+                <span class="status-dot tiny"></span>
+                Ready
+              </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+              <div class="stat-card-top">
+                <span>Functions</span>
+                <span class="stat-icon">ƒ</span>
+              </div>
+
+              <div class="stat-card-value-row">
+
+                <strong
+                  class="stat-value"
+                  id="functionCount"
+                >
+                  0
+                </strong>
+
+                <span class="stat-unit">
+                  functions
+                </span>
+
+              </div>
+
+              <div class="stat-status">
+                <span class="status-dot tiny"></span>
+                Local prototype
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <div class="overview-grid">
+
+            <article class="panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow">
+                    SERVICES
+                  </p>
+
+                  <h2>
+                    Project services
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="service-list">
+
+                <button
+                  class="service-row"
+                  data-open-view="database"
+                  type="button"
+                >
+                  <span class="service-icon">▦</span>
+
+                  <span class="service-copy">
+                    <strong>Database</strong>
+                    <span>
+                      Create and manage project tables
+                    </span>
+                  </span>
+
+                  <span class="service-state">
+                    Ready
+                  </span>
+
+                  <span class="service-arrow">→</span>
+                </button>
+
+
+                <button
+                  class="service-row"
+                  data-open-view="sql"
+                  type="button"
+                >
+                  <span class="service-icon">&gt;_</span>
+
+                  <span class="service-copy">
+                    <strong>SQL Editor</strong>
+                    <span>
+                      Write and save SQL queries
+                    </span>
+                  </span>
+
+                  <span class="service-state">
+                    Prototype
+                  </span>
+
+                  <span class="service-arrow">→</span>
+                </button>
+
+
+                <button
+                  class="service-row"
+                  data-open-view="storage"
+                  type="button"
+                >
+                  <span class="service-icon">▣</span>
+
+                  <span class="service-copy">
+                    <strong>Storage</strong>
+                    <span>
+                      Organize project files into buckets
+                    </span>
+                  </span>
+
+                  <span class="service-state">
+                    Ready
+                  </span>
+
+                  <span class="service-arrow">→</span>
+                </button>
+
+
+                <button
+                  class="service-row"
+                  data-open-view="functions"
+                  type="button"
+                >
+                  <span class="service-icon">ƒ</span>
+
+                  <span class="service-copy">
+                    <strong>Functions</strong>
+                    <span>
+                      Build server-side project functions
+                    </span>
+                  </span>
+
+                  <span class="service-state">
+                    Prototype
+                  </span>
+
+                  <span class="service-arrow">→</span>
+                </button>
+
+
+                <button
+                  class="service-row"
+                  data-open-view="api"
+                  type="button"
+                >
+                  <span class="service-icon code-icon">
+                    &lt;/&gt;
+                  </span>
+
+                  <span class="service-copy">
+                    <strong>API</strong>
+                    <span>
+                      Connect applications to your project
+                    </span>
+                  </span>
+
+                  <span class="service-state">
+                    Development
+                  </span>
+
+                  <span class="service-arrow">→</span>
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <article class="panel quickstart-panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow">
+                    QUICK START
+                  </p>
+
+                  <h2>
+                    Connect your app
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="quickstart-content">
+
+                <div class="quickstart-step">
+
+                  <span class="step-number">
+                    01
+                  </span>
+
+                  <div>
+                    <strong>
+                      Create your database
+                    </strong>
+
+                    <p>
+                      Add your first table and define
+                      your app data.
+                    </p>
+                  </div>
+
+                </div>
+
+
+                <div class="quickstart-step">
+
+                  <span class="step-number">
+                    02
+                  </span>
+
+                  <div>
+                    <strong>
+                      Get your credentials
+                    </strong>
+
+                    <p>
+                      View the project's development
+                      endpoint and key.
+                    </p>
+                  </div>
+
+                </div>
+
+
+                <div class="quickstart-step">
+
+                  <span class="step-number">
+                    03
+                  </span>
+
+                  <div>
+                    <strong>
+                      Connect your application
+                    </strong>
+
+                    <p>
+                      Prepare your application for
+                      ApexCloud's future backend.
+                    </p>
+                  </div>
+
+                </div>
+
+
+                <button
+                  class="secondary-button quickstart-button"
+                  data-open-view="api"
+                  type="button"
+                >
+                  View API settings
+                  <span>→</span>
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             TABLE EDITOR
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="database"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">DATABASE</p>
+              <h1>Table Editor</h1>
+
+              <p class="page-description">
+                Create and manage tables in your
+                ApexCloud project.
+              </p>
+            </div>
+
+            <button
+              class="primary-button compact-button"
+              id="createTableButton"
+              type="button"
+            >
+              + New table
+            </button>
+
+          </div>
+
+
+          <article class="panel resource-panel">
+
+            <div class="resource-toolbar">
+
+              <div>
+                <h2>Tables</h2>
+                <p>Public schema</p>
+              </div>
+
+              <span class="toolbar-badge">
+                DATABASE
+              </span>
+
+            </div>
+
+
+            <div
+              class="resource-empty"
+              id="databaseEmpty"
+            >
+
+              <div class="resource-empty-icon">
+                ▦
+              </div>
+
+              <h3>No tables yet</h3>
+
+              <p>
+                Create your first table to start
+                defining your project data.
+              </p>
+
+            </div>
+
+
+            <div
+              class="resource-list"
+              id="databaseTableList"
+              hidden
+            ></div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             SQL EDITOR
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="sql"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">DATABASE</p>
+              <h1>SQL Editor</h1>
+
+              <p class="page-description">
+                Write and save SQL for this project.
+              </p>
+            </div>
+
+            <button
+              class="secondary-button compact-button"
+              id="newQueryButton"
+              type="button"
+            >
+              + New query
+            </button>
+
+          </div>
+
+
+          <div class="sql-layout">
+
+            <aside class="panel sql-sidebar">
+
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-eyebrow">
+                    QUERIES
+                  </p>
+                  <h2>Saved queries</h2>
+                </div>
+              </div>
+
+              <div
+                class="sql-query-list"
+                id="savedQueryList"
+              ></div>
+
+            </aside>
+
+
+            <article class="panel sql-workspace">
+
+              <div class="sql-toolbar">
+
+                <input
+                  id="sqlQueryName"
+                  class="sql-query-name"
+                  value="Untitled query"
+                  aria-label="Query name"
+                >
+
+                <div class="sql-actions">
+
+                  <button
+                    class="secondary-button compact-button"
+                    id="saveQueryButton"
+                    type="button"
+                  >
+                    Save
+                  </button>
+
+                  <button
+                    class="primary-button compact-button"
+                    id="runQueryButton"
+                    type="button"
+                  >
+                    ▶ Run
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <div class="sql-editor-shell">
+
+                <div
+                  class="sql-line-numbers"
+                  id="sqlLineNumbers"
+                >
+                  1
+                </div>
+
+                <textarea
+                  id="sqlEditor"
+                  class="sql-editor"
+                  spellcheck="false"
+                  autocomplete="off"
+                >SELECT * FROM users;</textarea>
+
+              </div>
+
+
+              <div class="sql-results-header">
+
+                <div>
+                  <strong>Results</strong>
+                  <span id="sqlExecutionMeta">
+                    Not executed
+                  </span>
+                </div>
+
+                <span class="toolbar-badge">
+                  LOCAL PROTOTYPE
+                </span>
+
+              </div>
+
+
+              <div
+                class="sql-output"
+                id="sqlOutput"
+              >
+                <div class="sql-output-empty">
+                  Run a query to view execution output.
+                </div>
+              </div>
+
+            </article>
+
+          </div>
+
+
+          <article class="panel query-history-panel">
+
+            <div class="panel-heading">
+
+              <div>
+                <p class="panel-eyebrow">
+                  HISTORY
+                </p>
+                <h2>Query history</h2>
+              </div>
+
+              <button
+                class="text-button"
+                id="clearQueryHistoryButton"
+                type="button"
+              >
+                Clear
+              </button>
+
+            </div>
+
+            <div
+              class="history-list"
+              id="queryHistoryList"
+            ></div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             SCHEMA
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="schema"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">DATABASE</p>
+              <h1>Schema</h1>
+
+              <p class="page-description">
+                Explore the current structure of your
+                project database.
+              </p>
+            </div>
+
+          </div>
+
+
+          <article class="panel schema-panel">
+
+            <div class="resource-toolbar">
+
+              <div>
+                <h2>public</h2>
+                <p>Default schema</p>
+              </div>
+
+              <span
+                class="toolbar-badge"
+                id="schemaTableCount"
+              >
+                0 TABLES
+              </span>
+
+            </div>
+
+
+            <div
+              class="schema-grid"
+              id="schemaGrid"
+            ></div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             STORAGE
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="storage"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">STORAGE</p>
+              <h1>Storage</h1>
+
+              <p class="page-description">
+                Store and organize files for your
+                applications.
+              </p>
+            </div>
+
+            <button
+              class="primary-button compact-button"
+              id="createBucketButton"
+              type="button"
+            >
+              + New bucket
+            </button>
+
+          </div>
+
+
+          <article class="panel resource-panel">
+
+            <div class="resource-toolbar">
+
+              <div>
+                <h2>Buckets</h2>
+                <p>Project file storage</p>
+              </div>
+
+              <span class="toolbar-badge">
+                STORAGE
+              </span>
+
+            </div>
+
+
+            <div
+              class="resource-empty"
+              id="storageEmpty"
+            >
+
+              <div class="resource-empty-icon">
+                ▣
+              </div>
+
+              <h3>No buckets yet</h3>
+
+              <p>
+                Create a bucket to begin organizing
+                project files.
+              </p>
+
+            </div>
+
+
+            <div
+              class="resource-list"
+              id="storageBucketList"
+              hidden
+            ></div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             FUNCTIONS
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="functions"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">BUILD</p>
+              <h1>Functions</h1>
+
+              <p class="page-description">
+                Create server-side function definitions
+                for your ApexCloud project.
+              </p>
+            </div>
+
+            <button
+              class="primary-button compact-button"
+              id="createFunctionButton"
+              type="button"
+            >
+              + New function
+            </button>
+
+          </div>
+
+
+          <div class="functions-layout">
+
+            <article class="panel function-list-panel">
+
+              <div class="resource-toolbar">
+
+                <div>
+                  <h2>Functions</h2>
+                  <p>Project functions</p>
+                </div>
+
+                <span
+                  class="toolbar-badge"
+                  id="functionsBadge"
+                >
+                  0 FUNCTIONS
+                </span>
+
+              </div>
+
+
+              <div
+                class="resource-empty"
+                id="functionsEmpty"
+              >
+
+                <div class="resource-empty-icon">
+                  ƒ
+                </div>
+
+                <h3>No functions yet</h3>
+
+                <p>
+                  Create your first function to begin
+                  building server-side logic.
+                </p>
+
+              </div>
+
+
+              <div
+                class="function-list"
+                id="functionList"
+              ></div>
+
+            </article>
+
+
+            <article
+              class="panel function-editor-panel"
+              id="functionEditorPanel"
+              hidden
+            >
+
+              <div class="function-editor-header">
+
+                <div>
+
+                  <p class="panel-eyebrow">
+                    FUNCTION
+                  </p>
+
+                  <input
+                    id="functionNameInput"
+                    class="function-name-input"
+                    aria-label="Function name"
+                  >
+
+                </div>
+
+
+                <div class="function-editor-actions">
+
+                  <label class="toggle-control">
+
+                    <input
+                      id="functionEnabledInput"
+                      type="checkbox"
+                    >
+
+                    <span></span>
+
+                    Enabled
+
+                  </label>
+
+                  <button
+                    class="secondary-button compact-button"
+                    id="saveFunctionButton"
+                    type="button"
+                  >
+                    Save
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <textarea
+                id="functionCodeInput"
+                class="function-code-editor"
+                spellcheck="false"
+              ></textarea>
+
+
+              <div class="function-editor-footer">
+
+                <span>
+                  Local function definition
+                </span>
+
+                <button
+                  class="danger-text-button"
+                  id="deleteFunctionButton"
+                  type="button"
+                >
+                  Delete function
+                </button>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             API
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="api"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">DEVELOPMENT</p>
+              <h1>API</h1>
+
+              <p class="page-description">
+                Prepare your application to connect to
+                this ApexCloud project.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="api-layout">
+
+            <article class="panel api-panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow">
+                    PROJECT API
+                  </p>
+
+                  <h2>
+                    Development credentials
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="api-field">
+
+                <div class="api-field-header">
+
+                  <div>
+                    <label>Development endpoint</label>
+
+                    <span>
+                      Reserved project API address
+                    </span>
+                  </div>
+
+                </div>
+
+
+                <div class="code-copy-field">
+
+                  <code id="apiProjectUrl">—</code>
+
+                  <button
+                    id="copyApiUrlButton"
+                    type="button"
+                  >
+                    Copy
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <div class="api-field">
+
+                <div class="api-field-header">
+
+                  <div>
+                    <label>Development key</label>
+
+                    <span>
+                      Local prototype credential
+                    </span>
+                  </div>
+
+                </div>
+
+
+                <div class="code-copy-field">
+
+                  <code id="apiProjectKey">—</code>
+
+                  <button
+                    id="copyApiKeyButton"
+                    type="button"
+                  >
+                    Copy
+                  </button>
+
+                </div>
+
+              </div>
+
+
+              <div class="api-warning">
+
+                <span class="warning-icon">!</span>
+
+                <p>
+                  ApexCloud v0.01 is currently a local
+                  prototype. This endpoint is displayed
+                  as a development placeholder and does
+                  not represent a live ApexCloud API yet.
+                </p>
+
+              </div>
+
+            </article>
+
+
+            <article class="panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow">
+                    JAVASCRIPT
+                  </p>
+
+                  <h2>
+                    Connection example
+                  </h2>
+                </div>
+
+              </div>
+
+
+              <div class="code-window">
+
+                <div class="code-window-header">
+                  <span>request.js</span>
+                  <span class="code-language">JS</span>
+                </div>
+
+                <pre><code id="apiExample"></code></pre>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BACKUPS
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="backups"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">PROJECT</p>
+              <h1>Backups</h1>
+
+              <p class="page-description">
+                Create and restore local snapshots of
+                this ApexCloud project.
+              </p>
+            </div>
+
+            <button
+              class="primary-button compact-button"
+              id="createBackupButton"
+              type="button"
+            >
+              Create backup
+            </button>
+
+          </div>
+
+
+          <div class="backup-notice">
+
+            <span>i</span>
+
+            <p>
+              v0.01 backups are stored in this browser.
+              They are not remote disaster-recovery
+              backups yet.
+            </p>
+
+          </div>
+
+
+          <article class="panel">
+
+            <div class="resource-toolbar">
+
+              <div>
+                <h2>Project backups</h2>
+                <p>Local snapshots</p>
+              </div>
+
+              <span
+                class="toolbar-badge"
+                id="backupCountBadge"
+              >
+                0 BACKUPS
+              </span>
+
+            </div>
+
+
+            <div
+              class="resource-empty"
+              id="backupsEmpty"
+            >
+
+              <div class="resource-empty-icon">
+                ↶
+              </div>
+
+              <h3>No backups yet</h3>
+
+              <p>
+                Create a snapshot before making
+                major changes to your project.
+              </p>
+
+            </div>
+
+
+            <div
+              class="backup-list"
+              id="backupList"
+            ></div>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <div
+          class="view"
+          data-view-panel="settings"
+        >
+
+          <div class="page-header">
+
+            <div class="page-header-copy">
+              <p class="eyebrow">PROJECT</p>
+              <h1>Settings</h1>
+
+              <p class="page-description">
+                Configure your ApexCloud project.
+              </p>
+            </div>
+
+          </div>
+
+
+          <div class="settings-layout">
+
+            <article class="panel settings-panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow">
+                    GENERAL
+                  </p>
+
+                  <h2>Project details</h2>
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="settingsProjectName">
+                  Project name
+                </label>
+
+                <input
+                  id="settingsProjectName"
+                  type="text"
+                  autocomplete="off"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="settingsProjectDescription">
+                  Description
+                </label>
+
+                <textarea
+                  id="settingsProjectDescription"
+                  rows="4"
+                ></textarea>
+
+              </div>
+
+
+              <div class="settings-actions">
+
+                <button
+                  class="primary-button"
+                  id="saveProjectSettingsButton"
+                  type="button"
+                >
+                  Save changes
+                </button>
+
+              </div>
+
+            </article>
+
+
+            <article class="panel danger-panel">
+
+              <div class="panel-heading">
+
+                <div>
+                  <p class="panel-eyebrow danger-eyebrow">
+                    DANGER ZONE
+                  </p>
+
+                  <h2>Delete project</h2>
+                </div>
+
+              </div>
+
+              <p class="danger-description">
+                Permanently remove this local
+                ApexCloud project and its prototype
+                data from this browser.
+              </p>
+
+              <button
+                class="danger-button"
+                id="deleteProjectButton"
+                type="button"
+              >
+                Delete project
+              </button>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+      </section>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- =======================================================
+     CREATE PROJECT
+======================================================== -->
+
+<div
+  class="modal-backdrop"
+  id="createProjectModal"
+  hidden
+>
+
+  <div class="modal">
+
+    <div class="modal-header">
+
+      <div>
+        <p class="modal-eyebrow">
+          APEXCLOUD
+        </p>
+
+        <h2>Create a new project</h2>
+      </div>
+
+      <button
+        class="modal-close"
+        id="closeProjectModalButton"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="createProjectForm">
+
+      <div class="form-group">
+
+        <label for="projectNameInput">
+          Project name
+        </label>
+
+        <input
+          id="projectNameInput"
+          type="text"
+          placeholder="My Project"
+          autocomplete="off"
+          required
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="projectDescriptionInput">
+          Description
+        </label>
+
+        <textarea
+          id="projectDescriptionInput"
+          rows="3"
+          placeholder="What are you building?"
+        ></textarea>
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label for="projectRegionInput">
+          Region
+        </label>
+
+        <select id="projectRegionInput">
+          <option>US East</option>
+          <option>US West</option>
+          <option>Europe</option>
+          <option>Asia Pacific</option>
+        </select>
+
+      </div>
+
+
+      <div class="modal-note">
+
+        <span>i</span>
+
+        <p>
+          ApexCloud v0.01 currently stores project
+          data locally in this browser.
+        </p>
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="secondary-button"
+          id="cancelCreateProjectButton"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="primary-button"
+          type="submit"
+        >
+          Create project
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     RESOURCE MODAL
+======================================================== -->
+
+<div
+  class="modal-backdrop"
+  id="resourceModal"
+  hidden
+>
+
+  <div class="modal small-modal">
+
+    <div class="modal-header">
+
+      <div>
+
+        <p
+          class="modal-eyebrow"
+          id="resourceModalEyebrow"
+        >
+          DATABASE
+        </p>
+
+        <h2 id="resourceModalTitle">
+          Create resource
+        </h2>
+
+      </div>
+
+      <button
+        class="modal-close"
+        id="closeResourceModalButton"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="resourceForm">
+
+      <div class="form-group">
+
+        <label for="resourceNameInput">
+          Name
+        </label>
+
+        <input
+          id="resourceNameInput"
+          type="text"
+          required
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="secondary-button"
+          id="cancelResourceButton"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="primary-button"
+          id="resourceSubmitButton"
+          type="submit"
+        >
+          Create
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     CREATE FUNCTION
+======================================================== -->
+
+<div
+  class="modal-backdrop"
+  id="functionModal"
+  hidden
+>
+
+  <div class="modal small-modal">
+
+    <div class="modal-header">
+
+      <div>
+        <p class="modal-eyebrow">FUNCTIONS</p>
+        <h2>Create function</h2>
+      </div>
+
+      <button
+        class="modal-close"
+        id="closeFunctionModalButton"
+        type="button"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <form id="functionForm">
+
+      <div class="form-group">
+
+        <label for="newFunctionNameInput">
+          Function name
+        </label>
+
+        <input
+          id="newFunctionNameInput"
+          type="text"
+          placeholder="hello-world"
+          autocomplete="off"
+          required
+        >
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="secondary-button"
+          id="cancelFunctionButton"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          class="primary-button"
+          type="submit"
+        >
+          Create function
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<div
+  class="toast"
+  id="toast"
+  role="status"
+></div>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
